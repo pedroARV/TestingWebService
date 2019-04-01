@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.testing.Testing.model.Response;
 import com.testing.Testing.model.Usuario;
 
 import org.springframework.ui.Model;
@@ -29,7 +30,7 @@ public class HomeController {
 	}
 	
 	@PostMapping("/usuarios")
-	public ResponseEntity<Usuario> update(@RequestBody Usuario usuario) {		
+	public ResponseEntity<Response> update(@RequestBody Usuario usuario) {		
 
 		String nombre = usuario.getNombre();
 		int edad = usuario.getEdad();
@@ -59,32 +60,32 @@ public class HomeController {
 		
 		
 		//factorial de edad
-		int factorial = 1;
+		int fact = 1;
 	    while ( edad!=0 && edad>=0) {
-	        factorial = factorial * edad;
+	        fact = fact * edad;
 	        edad--;
 	      }
-	    edad = factorial;
+	    edad = fact;
 	    
 	    //polindromo de sexo
 	    int des = sexo.length()-1;
-	    String polindromo = "";
+	    String poli = "";
 	    char letra;
 	    while (des>=0){
 	    	letra = sexo.charAt(des);
     		des--; 
-    		polindromo = polindromo + letra;
+    		poli = poli + letra;
 	    }
-	    sexo = sexo + polindromo;
+	    sexo = sexo + poli;
 	    
 	    
 	    //se guardan los valores en el objeto a devolver
-	    usuario.setEdad(edad);
-	    usuario.setSexo(sexo);
-	    usuario.setNombre(nombre);
-	    
+	    Response response = new Response();
+	    response.setFactorial(edad);
+	    response.setPolindromo(sexo);
+	    response.setConcatenacion(nombre);	    
 	    
 		
-		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
 }
