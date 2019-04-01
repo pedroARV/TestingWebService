@@ -80,7 +80,7 @@ public class HomeController {
 	    	sexo = sexo + " NO es un palindromo";
 	    
 	    
-	    //se guardan los valores en elobjeto a devolver
+	    //se guardan los valores en el objeto a devolver
 	    usuario.setNombre(nombre);
 	    usuario.setEdad(edad);
 	    usuario.setSexo(sexo);
