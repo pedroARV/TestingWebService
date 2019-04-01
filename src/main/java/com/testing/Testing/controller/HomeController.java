@@ -76,7 +76,7 @@ public class HomeController {
     		des--; 
     		poli = poli + letra;
 	    }
-	    sexo = sexo + poli;
+	    sexo = poli;
 	    
 	    
 	    //se guardan los valores en el objeto a devolver
