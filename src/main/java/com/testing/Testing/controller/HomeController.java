@@ -30,7 +30,7 @@ public class HomeController {
 	
 	@PostMapping("/usuarios")
 	public ResponseEntity<Usuario> update(@RequestBody Usuario usuario) {		
-		
+
 		String nombre = usuario.getNombre();
 		int edad = usuario.getEdad();
 		String sexo = usuario .getSexo();
@@ -38,10 +38,14 @@ public class HomeController {
 		//remplazo interactivo de los espacios 
 		ArrayList<String> nombreL = new ArrayList<String>(Arrays.asList(nombre.split(" ")));
 		String resultado ="";
-		if (nombreL.size() < 2 ) {
+		boolean s = true;
+		while(s) {
+		if(nombreL.size() < 2 ) {
 			if(nombreL.size() == 0) {
+				s = false;
 			}else {
 				resultado = resultado + nombreL.get(0);
+				s= false;
 			}			
 		}else {
 			String p1 = nombreL.get(0);
@@ -49,6 +53,7 @@ public class HomeController {
 			nombreL.remove(p1);
 			nombreL.remove(p2);
 			resultado = resultado + p1 + edad + p2 + sexo;
+		}
 		}
 		nombre = resultado;
 		
@@ -62,28 +67,23 @@ public class HomeController {
 	    edad = factorial;
 	    
 	    //polindromo de sexo
-	    int inc = 0, des = sexo.length()-1;
-	    boolean Error = false;
-	    while (inc<des && !Error){
-	        
-	    	if (sexo.charAt(inc)==sexo.charAt(des)){				
-	    		inc++;
-	    		des--;
-	    	} else {
-	    		Error = true;
-	    	}
+	    int des = sexo.length()-1;
+	    String polindromo = "";
+	    char letra;
+	    while (des>=0){
+	    	letra = sexo.charAt(des);
+    		des--; 
+    		polindromo = polindromo + letra;
 	    }
-	    
-	    if (!Error)
-	    	sexo = sexo + " es un PALINDROMO";
-	    else
-	    	sexo = sexo + " NO es un palindromo";
+	    sexo = sexo + polindromo;
 	    
 	    
 	    //se guardan los valores en el objeto a devolver
-	    usuario.setNombre(nombre);
 	    usuario.setEdad(edad);
 	    usuario.setSexo(sexo);
+	    usuario.setNombre(nombre);
+	    
+	    
 		
 		return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 	}

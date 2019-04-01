@@ -2,17 +2,11 @@ package com.testing.Testing.model;
 
 public class Usuario {
 	
-	private String nombre;
 	private int edad;
 	private String sexo;
+	private String nombre;
 	
 	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	public int getEdad() {
 		return edad;
 	}
@@ -25,7 +19,12 @@ public class Usuario {
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	
-
 }
