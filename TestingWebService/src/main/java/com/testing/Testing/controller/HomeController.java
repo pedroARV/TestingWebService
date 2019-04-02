@@ -19,16 +19,6 @@ import org.springframework.ui.Model;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/")
-	public String home(Model model) {
-		return "home";		
-	}
-	
-	@RequestMapping("/home")
-	public String home1(Model model) {
-		return "home";
-	}
-	
 	@PostMapping("/usuarios")
 	public ResponseEntity<Response> update(@RequestBody Usuario usuario) {		
 
