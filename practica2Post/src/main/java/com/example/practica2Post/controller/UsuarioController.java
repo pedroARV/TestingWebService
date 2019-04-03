@@ -18,7 +18,7 @@ public class UsuarioController{
 		
 	@PostMapping("/users")
 	public ResponseEntity<Response> respuesta(@RequestHeader (value="fileName",required=true )String fileName,@RequestBody Usuario usuario) throws Throwable{	
-		return userService.nombreArchivo(fileName, usuario);
+		return userService.nombreArchivoExcel(fileName, usuario);
 		}
 	
 
