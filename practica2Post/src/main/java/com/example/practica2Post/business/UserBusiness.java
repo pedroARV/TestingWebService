@@ -11,20 +11,32 @@ import com.example.practica2Post.service.IUserService;
 @Service
 public class UserBusiness implements IUserService {
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
-	public ResponseEntity<Response> respuesta(String fileName, Usuarios usuarios) throws Exception {
+	public ResponseEntity<Response> nombreArchivo(String fileName) throws Exception {
 				
 		if(fileName.length() < 1) {
-			ResponseEntity<Response> response = new ResponseEntity<Response>(HttpStatus.CONFLICT);
-			response.getBody().setCode(409);
-			response.getBody().setMessage("Nombre de archivo no valido");
-			return (response);
+			Response respuesta = new Response();
+			ResponseEntity<Response> entity = new ResponseEntity<Response>(respuesta, HttpStatus.CONFLICT);
+			entity.getBody().setMessage("nombre de archivo incorrecto");
+			entity.getBody().setCode(409);
+			return entity;
 		}
 		
-		ResponseEntity<Response> response = new ResponseEntity<Response>(HttpStatus.OK);
-		response.getBody().setCode(200);
-		response.getBody().setMessage("ok");		
-		return response;
+		Response respuesta = new Response();
+		ResponseEntity<Response> entity = new ResponseEntity<Response>(respuesta, HttpStatus.OK);
+		entity.getBody().setMessage("ok");
+		entity.getBody().setCode(200);
+		return entity;
 	}
 
 }

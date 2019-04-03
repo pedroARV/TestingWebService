@@ -25,7 +25,8 @@ public class UsuarioController{
 		
 		ResponseEntity<Response> response = new ResponseEntity<Response>(HttpStatus.OK);
 		
-		response = userService.respuesta(fileName, usuarios);
+		
+		response = userService.nombreArchivo(fileName);
 
 		return response;
 	}

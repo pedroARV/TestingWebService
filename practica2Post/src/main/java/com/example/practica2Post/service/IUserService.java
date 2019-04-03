@@ -9,7 +9,7 @@ import com.example.practica2Post.model.Usuarios;
 @Component
 public interface IUserService {
 
-	public ResponseEntity<Response> respuesta(String fileName, Usuarios usuarios) throws Exception;
+	public ResponseEntity<Response> nombreArchivo(String fileName) throws Exception;
 	
 	
 	
