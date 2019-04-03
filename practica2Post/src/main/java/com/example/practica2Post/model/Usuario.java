@@ -3,7 +3,7 @@ package com.example.practica2Post.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuarios {
+public class Usuario {
 	private String accountId; 
 	private String accountStatus;
 	private String alias;

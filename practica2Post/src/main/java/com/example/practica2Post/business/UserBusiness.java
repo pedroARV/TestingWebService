@@ -5,25 +5,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.practica2Post.model.Response;
-import com.example.practica2Post.model.Usuarios;
+import com.example.practica2Post.model.Usuario;
 import com.example.practica2Post.service.IUserService;
 
 @Service
 public class UserBusiness implements IUserService {
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
-	public ResponseEntity<Response> nombreArchivo(String fileName) throws Exception {
-				
+	public ResponseEntity<Response> nombreArchivo(String fileName, Usuario usuario) throws Exception {
+		
+		
 		if(fileName.length() < 1) {
 			Response respuesta = new Response();
 			ResponseEntity<Response> entity = new ResponseEntity<Response>(respuesta, HttpStatus.CONFLICT);
@@ -37,6 +28,8 @@ public class UserBusiness implements IUserService {
 		entity.getBody().setMessage("ok");
 		entity.getBody().setCode(200);
 		return entity;
+		
+		
 	}
 
 }
