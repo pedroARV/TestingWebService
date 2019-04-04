@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.practica2Post.model.Usuario;
 import com.example.practica2Post.service.IUserService;
 import com.example.practica2Post.model.Response;

@@ -2,14 +2,10 @@ package com.example.practica2Post.tools;
 
 import java.io.FileWriter;
 import java.util.Calendar;
-
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.example.practica2Post.model.FileManager;
 import com.example.practica2Post.model.Response;
 import com.example.practica2Post.model.Usuario;
