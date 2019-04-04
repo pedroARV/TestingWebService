@@ -12,14 +12,16 @@ import com.example.practica2Post.service.IUserService;
 import com.example.practica2Post.model.Response;
 
 @RestController
-public class UsuarioController{
-	
-	@Autowired IUserService userService;
-		
+public class UsuarioController {
+
+	@Autowired
+	IUserService userService;
+
 	@PostMapping("/users")
-	public ResponseEntity<Response> respuesta(@RequestHeader (value="fileName",required=true )String fileName,@RequestHeader (value="typeFile",required=true )String typeFile,@RequestBody Usuario usuario) throws Throwable{	
+	public ResponseEntity<Response> respuesta(@RequestHeader(value = "fileName", required = true) String fileName,
+			@RequestHeader(value = "typeFile", required = true) String typeFile, @RequestBody Usuario usuario)
+			throws Throwable {
 		return userService.nombreArchivoExcel(fileName, typeFile, usuario);
-		}
-	
+	}
 
 }
