@@ -17,8 +17,8 @@ public class UsuarioController{
 	@Autowired IUserService userService;
 		
 	@PostMapping("/users")
-	public ResponseEntity<Response> respuesta(@RequestHeader (value="fileName",required=true )String fileName,@RequestBody Usuario usuario) throws Throwable{	
-		return userService.nombreArchivoExcel(fileName, usuario);
+	public ResponseEntity<Response> respuesta(@RequestHeader (value="fileName",required=true )String fileName,@RequestHeader (value="typeFile",required=true )String typeFile,@RequestBody Usuario usuario) throws Throwable{	
+		return userService.nombreArchivoExcel(fileName, typeFile, usuario);
 		}
 	
 

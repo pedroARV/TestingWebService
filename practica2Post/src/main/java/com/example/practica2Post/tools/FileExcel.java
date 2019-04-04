@@ -8,18 +8,22 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import com.example.practica2Post.model.FileManager;
+import com.example.practica2Post.model.Response;
 import com.example.practica2Post.model.Usuario;
 
+@Service
 public class FileExcel {
 	
-	@Autowired FileManager fileManager;
+	FileManager fileManager = new FileManager();
 	@Value("${file.path}")
 	String filePath;
 	
-	public void crearExcel(String fileName, Usuario usuario) throws Exception {
+	public ResponseEntity<Response> crearExcel(String fileName, Usuario usuario) {
 		
 		//creacion del archivo excel
 		HSSFWorkbook excel = new HSSFWorkbook();
@@ -215,12 +219,22 @@ public class FileExcel {
 		
 		
 		//creamos el path del excel y le ponemos nombre		
-		FileOutputStream file = new FileOutputStream(filePath + fileName + "-" + dia + "-" + mes + "-" + año + ".xls");
-		
-		//escribimos dentro el excel
-		excel.write(file);
-		file.close();
-	return;
+		Response respuesta = new Response();
+		try {
+			FileOutputStream file = new FileOutputStream(filePath + fileName + "-" + dia + "-" + mes + "-" + año + ".xls");
+			excel.write(file);
+			file.close();
+			
+			ResponseEntity<Response> entity = new ResponseEntity<Response>(respuesta, HttpStatus.OK);
+			entity.getBody().setMessage("archivo guardado correctamente");
+			entity.getBody().setCode(200);
+			return entity;
+		} catch (Exception e) {
+			ResponseEntity<Response> entityFileError = new ResponseEntity<Response>(respuesta, HttpStatus.INTERNAL_SERVER_ERROR);
+			entityFileError.getBody().setMessage("error al crear el archivo excel");
+			entityFileError.getBody().setCode(409);
+			return entityFileError;
+		}
 	}
 }
 

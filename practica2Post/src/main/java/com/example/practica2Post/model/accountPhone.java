@@ -1,6 +1,6 @@
 package com.example.practica2Post.model;
 
-public class accountPhones {
+public class accountPhone {
 	
 	 private String accountId;
 	 private String extensionNumber;

@@ -1,6 +1,6 @@
 package com.example.practica2Post.model;
 
-public class businessAddresses {
+public class businessAddress {
 	
 	 private String addressId;
 	 private String addressIntegrationId;

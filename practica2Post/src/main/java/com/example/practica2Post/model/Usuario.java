@@ -1,6 +1,5 @@
 package com.example.practica2Post.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -10,9 +9,9 @@ public class Usuario {
 	private String competitorFlag;
 	private String currencyCode;
 	private String expertise;
-	private List<accountEmails>accountEmails;
-	private List<accountPhones>accountPhones;
-	private List<businessAddresses>businessAddresses;
+	private List<accountEmail>accountEmails;
+	private List<accountPhone>accountPhones;
+	private List<businessAddress>businessAddresses;
 	private String perfilPago;
 	private String mainPhoneNumber;
 	private String name;
@@ -63,22 +62,22 @@ public class Usuario {
 	public void setExpertise(String expertise) {
 		this.expertise = expertise;
 	}
-	public List<accountEmails> getAccountEmails() {
+	public List<accountEmail> getAccountEmails() {
 		return accountEmails;
 	}
-	public void setAccountEmails(List<accountEmails> accountEmails) {
+	public void setAccountEmails(List<accountEmail> accountEmails) {
 		this.accountEmails = accountEmails;
 	}
-	public List<accountPhones> getAccountPhones() {
+	public List<accountPhone> getAccountPhones() {
 		return accountPhones;
 	}
-	public void setAccountPhones(List<accountPhones> accountPhones) {
+	public void setAccountPhones(List<accountPhone> accountPhones) {
 		this.accountPhones = accountPhones;
 	}
-	public List<businessAddresses> getBusinessAddresses() {
+	public List<businessAddress> getBusinessAddresses() {
 		return businessAddresses;
 	}
-	public void setBusinessAddresses(List<businessAddresses> businessAddresses) {
+	public void setBusinessAddresses(List<businessAddress> businessAddresses) {
 		this.businessAddresses = businessAddresses;
 	}
 	public String getPerfilPago() {

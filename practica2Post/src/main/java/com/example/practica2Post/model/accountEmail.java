@@ -1,6 +1,6 @@
 package com.example.practica2Post.model;
 
-public class accountEmails {
+public class accountEmail {
 	
 	 private String correo;
      private String promo;
