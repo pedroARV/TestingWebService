@@ -30,26 +30,28 @@ public class FileCSV {
 			// crea archivo vacio
 			FileWriter fw = new FileWriter(filePath + fileName + "-" + dia + "-" + mes + "-" + year + ".csv");
 
+			fw.append("ESTE ARCHIVO CSV CONTIENE LOS DATOS PERSONALES DE UN SOLO USUARIO, \n");
 			// escribimos la primer parte del CSV
-			fw.append("accountId: , " + usuario.getAccountId() + "\n");
-			fw.append("accountStatus: , " + usuario.getAccountStatus() + "\n");
-			fw.append("alias: , " + usuario.getAlias() + "\n");
-			fw.append("competitorFlag: , " + usuario.getCompetitorFlag() + "\n");
-			fw.append("currencyCode: , " + usuario.getCurrencyCode() + "\n");
-			fw.append("expertise: , " + usuario.getExpertise() + "\n");
-			fw.append("perfilPago: , " + usuario.getPerfilPago() + "\n");
-			fw.append("mainPhoneNumber: , " + usuario.getMainPhoneNumber() + "\n");
-			fw.append("name: , " + usuario.getName() + "\n");
-			fw.append("partnerFlag: , " + usuario.getPartnerFlag() + "\n");
-			fw.append("priceList: , " + usuario.getPriceList() + "\n");
-			fw.append("priceListId: , " + usuario.getPriceListId() + "\n");
-			fw.append("primaryOrganization: , " + usuario.getPrimaryOrganization() + "\n");
-			fw.append("skipCreditCheck: , " + usuario.getSkipCreditCheck() + "\n");
-			fw.append("subscriberType: , " + usuario.getSubscriberType() + "\n");
-			fw.append("ttGiroNegocio: , " + usuario.getTtGiroNegocio() + "\n");
-			fw.append("type: , " + usuario.getType() + "\n");
-			fw.append("vatregistration," + usuario.isVatregistration() + "\n \n");
+			fw.append("accountId: , " + usuario.getAccountId() + " , \n");
+			fw.append("accountStatus: , " + usuario.getAccountStatus() + " , \n");
+			fw.append("alias: , " + usuario.getAlias() + " , \n");
+			fw.append("competitorFlag: , " + usuario.getCompetitorFlag() + " , \n");
+			fw.append("currencyCode: , " + usuario.getCurrencyCode() + " , \n");
+			fw.append("expertise: , " + usuario.getExpertise() + " , \n");
+			fw.append("perfilPago: , " + usuario.getPerfilPago() + " , \n");
+			fw.append("mainPhoneNumber: , " + usuario.getMainPhoneNumber() + " , \n");
+			fw.append("name: , " + usuario.getName() + " , \n");
+			fw.append("partnerFlag: , " + usuario.getPartnerFlag() + " , \n");
+			fw.append("priceList: , " + usuario.getPriceList() + " , \n");
+			fw.append("priceListId: , " + usuario.getPriceListId() + " , \n");
+			fw.append("primaryOrganization: , " + usuario.getPrimaryOrganization() + " , \n");
+			fw.append("skipCreditCheck: , " + usuario.getSkipCreditCheck() + " , \n");
+			fw.append("subscriberType: , " + usuario.getSubscriberType() + " , \n");
+			fw.append("ttGiroNegocio: , " + usuario.getTtGiroNegocio() + " , \n");
+			fw.append("type: , " + usuario.getType() + " , \n");
+			fw.append("vatregistration , " + usuario.isVatregistration() + " , \n \n");
 
+			fw.append("ESTA ES UNA LISTA DE CUENTAS-EMAILS QUE TIENE EL USUARIO, \n");
 			// crea los headers AccountEmails
 			String[] headerAccountEmails = new String[] { "correo", "promo", "cvmotivo", "cvnewsletter", "cvpaperless",
 					"cvemailId", "cvtcontacto", "ttupdated", "ttupdatedByLogin", "ttupdatedFlg" };
@@ -70,10 +72,11 @@ public class FileCSV {
 				fw.append(usuario.getAccountEmails().get(i).getCvtcontacto() + " , ");
 				fw.append(usuario.getAccountEmails().get(i).getTtupdated() + " , ");
 				fw.append(usuario.getAccountEmails().get(i).getTtupdatedByLogin() + " , ");
-				fw.append(usuario.getAccountEmails().get(i).getTtupdatedFlg() + "\n");
+				fw.append(usuario.getAccountEmails().get(i).getTtupdatedFlg() + " , \n");
 			}
 			fw.append("\n");
 
+			fw.append("ESTA ES UNA LISTA DE CUENTAS DE CELULARES QUE TIENE EL USUARIO, \n");
 			// crea los headers AccountPhones
 			String[] headerAccountPhones = new String[] { "accountId", "extensionNumber", "numeroTelefonico", "sms",
 					"telefonoCompany", "tipoTelefono", "ttupdated", "ttupdatedByLogin", "ttupdatedFlg" };
@@ -83,6 +86,7 @@ public class FileCSV {
 				fw.append(header + " , ");
 			}
 			fw.append("\n");
+			// escribimos el contenido de AccountPhones
 			for (int i = 0; i < usuario.getAccountPhones().size(); ++i) {
 				fw.append(usuario.getAccountPhones().get(i).getAccountId() + " , ");
 				fw.append(usuario.getAccountPhones().get(i).getExtensionNumber() + " , ");
@@ -92,10 +96,11 @@ public class FileCSV {
 				fw.append(usuario.getAccountPhones().get(i).getTipoTelefono() + " , ");
 				fw.append(usuario.getAccountPhones().get(i).getTtupdated() + " , ");
 				fw.append(usuario.getAccountPhones().get(i).getTtupdatedByLogin() + " , ");
-				fw.append(usuario.getAccountPhones().get(i).getTtupdatedFlg() + "\n");
+				fw.append(usuario.getAccountPhones().get(i).getTtupdatedFlg() + " , \n");
 			}
 			fw.append("\n");
 
+			fw.append("ESTA ES UNA LISTA DE LAS DIRECCIONES QUE SE HAN REGISTRADO A ESTE USUARIO, \n");
 			// crea los headers BusinessAddresses
 			String[] headerBusinessAddresses = new String[] { "addressId", "addressIntegrationId", "city", "country",
 					"county", "postalCode", "province", "state", "streetAddress", "streetAddress2" };
@@ -105,6 +110,7 @@ public class FileCSV {
 				fw.append(header + " , ");
 			}
 			fw.append("\n");
+			// escribimos el contenido de BusinessAddresses
 			for (int i = 0; i < usuario.getBusinessAddresses().size(); ++i) {
 				fw.append(usuario.getBusinessAddresses().get(i).getAddressId() + " , ");
 				fw.append(usuario.getBusinessAddresses().get(i).getAddressIntegrationId() + " , ");
@@ -115,7 +121,7 @@ public class FileCSV {
 				fw.append(usuario.getBusinessAddresses().get(i).getProvince() + " , ");
 				fw.append(usuario.getBusinessAddresses().get(i).getState() + " , ");
 				fw.append(usuario.getBusinessAddresses().get(i).getStreetAddress() + " , ");
-				fw.append(usuario.getBusinessAddresses().get(i).getStreetAddress2() + "\n");
+				fw.append(usuario.getBusinessAddresses().get(i).getStreetAddress2() + " , \n");
 			}
 
 			fw.flush();
