@@ -8,7 +8,6 @@ import com.example.practica2Post.model.Usuario;
 @Component
 public interface IUserService {
 
-	public ResponseEntity<Response> nombreArchivoExcel(String fileName, String typeFile, Usuario usuario)
-			throws Exception;
+	public ResponseEntity<Response> nombreArchivoExcel(String fileName, String typeFile, Usuario usuario);
 
 }
