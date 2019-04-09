@@ -22,16 +22,16 @@ public class TDetalle implements Serializable {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "nombre")
+	@Column(name = "latitude")
 	private Double latitude;
 
-	@Column(name = "nombre")
+	@Column(name = "longitude")
 	private Double longitude;
 
-	@Column(name = "nombre")
+	@Column(name = "city")
 	private String city;
 
-	@Column(name = "nombre")
+	@Column(name = "description")
 	private String description;
 
 	@ManyToOne

@@ -78,8 +78,8 @@ public class EmpleadoBusiness implements IEmpleadoService {
 //base de datos
 			if (db.trim().equals("si")) {
 				try {
-					//saveDB.guardarDB(usuario);
-					// responseFiles.getBody().setDb("almacenado correctamente");
+					saveDB.guardarDB(usuario);
+					responseFiles.getBody().setDb("almacenado correctamente");
 				} catch (Exception e) {
 					responseFiles.getBody().setDb("error");
 				}
