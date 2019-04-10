@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Empleado")
+@Table(name = "empleado")
 @NamedQuery(name = "TEmpleado.findAll", query = "SELECT t FROM TEmpleado t")
 public class TEmpleado implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -34,7 +34,7 @@ public class TEmpleado implements Serializable {
 	@Column(name = "edad")
 	private int edad;
 
-	@Column(name = "fechaContratacion")
+	@Column(name = "fecha_contratacion")
 	private String fechaContratacion;
 
 	@OneToMany(mappedBy = "TEmpleado")

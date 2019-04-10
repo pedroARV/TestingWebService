@@ -34,9 +34,9 @@ public class EmpleadoBusiness implements IEmpleadoService {
 	SaveDB saveDB;
 
 	@Override
-	public ResponseEntity<?> procesarUsuarios(String csv, String xls, String pdf, String db, Empleado usuario) {
+	public ResponseEntity<?> procesarUsuarios(String csv, String xls, String pdf, String db, Empleado empleado) {
 //validamos
-		ResponseEntity<ResponseValidacion> erorres = validacion.validar(csv, xls, pdf, db, usuario);
+		ResponseEntity<ResponseValidacion> erorres = validacion.validar(csv, xls, pdf, db, empleado);
 //revisamos el codigo que regreso
 		if (!(erorres.getBody().getCode() == 00)) {
 			return erorres;
@@ -51,7 +51,7 @@ public class EmpleadoBusiness implements IEmpleadoService {
 //csv
 			if (csv.trim().equals("si")) {
 				try {
-					fileCSV.crearCSV(fecha, filePath, usuario);
+					fileCSV.crearCSV(fecha, filePath, empleado);
 					responseFiles.getBody().setCsv("csv" + fecha + ".csv");
 				} catch (Exception e) {
 					responseFiles.getBody().setCsv("error");
@@ -60,7 +60,7 @@ public class EmpleadoBusiness implements IEmpleadoService {
 //excel
 			if (xls.trim().equals("si")) {
 				try {
-					fileXLS.crearExcel(fecha, filePath, usuario);
+					fileXLS.crearExcel(fecha, filePath, empleado);
 					responseFiles.getBody().setXls("xls" + fecha + ".xls");
 				} catch (Exception e) {
 					responseFiles.getBody().setXls("error");
@@ -69,7 +69,7 @@ public class EmpleadoBusiness implements IEmpleadoService {
 //pdf
 			if (pdf.trim().equals("si")) {
 				try {
-					filePDF.crearPDF(fecha, filePath, usuario);
+					filePDF.crearPDF(fecha, filePath, empleado);
 					responseFiles.getBody().setPdf("pdf" + fecha + ".pdf");
 				} catch (Exception e) {
 					responseFiles.getBody().setPdf("error");
@@ -78,7 +78,7 @@ public class EmpleadoBusiness implements IEmpleadoService {
 //base de datos
 			if (db.trim().equals("si")) {
 				try {
-					saveDB.guardarDB(usuario);
+					saveDB.guardarDB(empleado);
 					responseFiles.getBody().setDb("almacenado correctamente");
 				} catch (Exception e) {
 					responseFiles.getBody().setDb("error");

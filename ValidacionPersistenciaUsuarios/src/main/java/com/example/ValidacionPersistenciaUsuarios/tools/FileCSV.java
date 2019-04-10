@@ -15,7 +15,8 @@ public class FileCSV {
 		// crea archivo vacio
 		FileWriter fw = new FileWriter(filePath + "csv" + fecha + ".csv");
 
-		fw.append("ESTE ARCHIVO CSV CONTIENE LOS DATOS DEL EMPLEADO: " + usuario.getNombre() + " " + usuario.getApellidos() + ", \n");
+		fw.append("ESTE ARCHIVO CSV CONTIENE LOS DATOS DEL EMPLEADO: " + usuario.getNombre() + " "
+				+ usuario.getApellidos() + ", \n");
 		// escribimos la primer parte del CSV
 		fw.append("nombre: , " + usuario.getNombre() + " , \n");
 		fw.append("apellidos: , " + usuario.getApellidos() + " , \n");

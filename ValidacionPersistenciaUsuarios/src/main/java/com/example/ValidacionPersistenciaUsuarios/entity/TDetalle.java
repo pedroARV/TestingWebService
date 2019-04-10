@@ -12,7 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Detalle")
+@Table(name = "detalle")
 @NamedQuery(name = "TDetalle.findAll", query = "SELECT t FROM TDetalle t")
 public class TDetalle implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -35,7 +35,7 @@ public class TDetalle implements Serializable {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "Empleado_id")
+	@JoinColumn(name = "empleado_id")
 	private TEmpleado TEmpleado;
 
 	public int getId() {

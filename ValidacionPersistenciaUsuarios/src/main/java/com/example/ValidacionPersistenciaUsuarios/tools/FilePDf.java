@@ -36,18 +36,16 @@ public class FilePDf {
 //llenamos los parrafos que vamos a escribir
 		title.add("Documentacion del empleado: " + usuario.getNombre() + " " + usuario.getApellidos());
 
-		row.add("nombre: " + usuario.getNombre() 
-				+ "\napellidos: " + usuario.getApellidos() + "\ncorreo: " + usuario.getCorreo() 
-				+ "\nedad: " + usuario.getEdad() 
-				+ "\nfechaContratacion: " + usuario.getFechaContratacion() + "\n");
+		row.add("nombre: " + usuario.getNombre() + "\napellidos: " + usuario.getApellidos() + "\ncorreo: "
+				+ usuario.getCorreo() + "\nedad: " + usuario.getEdad() + "\nfechaContratacion: "
+				+ usuario.getFechaContratacion() + "\n");
 
 		subTitle.add("MARCADORES: " + "\nlatitude, " + " longitude, " + " city, " + " description");
 
 		for (int i = 0; i < usuario.getMarcadores().size(); i++) {
 			rowL.add(usuario.getMarcadores().get(i).getLatitude() + " , "
-					+ usuario.getMarcadores().get(i).getLongitude() + " , " 
-					+ usuario.getMarcadores().get(i).getCity() + " , " 
-					+ usuario.getMarcadores().get(i).getDescription() + "\n");
+					+ usuario.getMarcadores().get(i).getLongitude() + " , " + usuario.getMarcadores().get(i).getCity()
+					+ " , " + usuario.getMarcadores().get(i).getDescription() + "\n");
 		}
 
 //escribimos los parrafos en el documento pdf
