@@ -41,26 +41,3 @@ public class SaveDB implements ITEmpleadoService {
 
 	}
 }
-
-/*
- * List<TDetalle> tDetalle = new ArrayList(); for (int i = 0; i <
- * empleado.getMarcadores().size(); i++) {
- * tDetalle.get(i).setLatitude(empleado.getMarcadores().get(i).getLatitude());
- * tDetalle.get(i).setLongitude(empleado.getMarcadores().get(i).getLongitude());
- * tDetalle.get(i).setCity(empleado.getMarcadores().get(i).getCity());
- * tDetalle.get(i).setDescription(empleado.getMarcadores().get(i).getDescription
- * ()); tEmpleado.setTDetalle(tDetalle); } tEmpleado.setTDetalle(tDetalle);
- * empleadoRespository.save(tEmpleado);
- * 
- * TDetalle tDetalle = new TDetalle; for (int i = 0; i <
- * empleado.getMarcadores().size(); i++) {
- * tDetalle.setLatitude(empleado.getMarcadores().get(i).getLatitude());
- * tDetalle.setLongitude(empleado.getMarcadores().get(i).getLongitude());
- * tDetalle.setCity(empleado.getMarcadores().get(i).getCity());
- * tDetalle.setDescription(empleado.getMarcadores().get(i).getDescription()); }
- * empleadoRespository.save(tEmpleado);
- * 
- * 
- * 
- * 
- */
