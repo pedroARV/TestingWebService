@@ -8,11 +8,10 @@ import com.example.ValidacionPersistenciaUsuarios.entity.TEmpleado;
 import com.example.ValidacionPersistenciaUsuarios.modelo.Empleado;
 import com.example.ValidacionPersistenciaUsuarios.repository.IDetalleRepository;
 import com.example.ValidacionPersistenciaUsuarios.repository.IEmpleadoRespository;
-import com.example.ValidacionPersistenciaUsuarios.service.ITEmpleadoService;
 
 @Transactional
 @Service
-public class SaveDB implements ITEmpleadoService {
+public class SaveDB {
 
 	@Autowired
 	IEmpleadoRespository empleadoRespository;
