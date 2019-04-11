@@ -34,9 +34,9 @@ public class EmpleadoBusiness implements IEmpleadoService {
 	SaveDB saveDB;
 
 	@Override
-	public ResponseEntity<?> procesarUsuarios(String csv, String xls, String pdf, String db, Empleado empleado) {
+	public ResponseEntity<?> procesarUsuarios(String pdf, String csv, String xls, String db, Empleado empleado) {
 //validamos
-		ResponseEntity<ResponseValidacion> erorres = validacion.validar(csv, xls, pdf, db, empleado);
+		ResponseEntity<ResponseValidacion> erorres = validacion.validar(pdf, csv, xls, db, empleado);
 //revisamos el codigo que regreso
 		if (!(erorres.getBody().getCode() == 00)) {
 			return erorres;
@@ -56,6 +56,8 @@ public class EmpleadoBusiness implements IEmpleadoService {
 				} catch (Exception e) {
 					responseFiles.getBody().setCsv("error");
 				}
+			}else if (csv.trim().equals("no")){
+				responseFiles.getBody().setCsv("no aplica");
 			}
 //excel
 			if (xls.trim().equals("si")) {
@@ -65,6 +67,8 @@ public class EmpleadoBusiness implements IEmpleadoService {
 				} catch (Exception e) {
 					responseFiles.getBody().setXls("error");
 				}
+			}else if (xls.trim().equals("no")){
+				responseFiles.getBody().setXls("no aplica");
 			}
 //pdf
 			if (pdf.trim().equals("si")) {
@@ -74,6 +78,8 @@ public class EmpleadoBusiness implements IEmpleadoService {
 				} catch (Exception e) {
 					responseFiles.getBody().setPdf("error");
 				}
+			}else if (pdf.trim().equals("no")) {
+				responseFiles.getBody().setPdf("no aplica");
 			}
 //base de datos
 			if (db.trim().equals("si")) {
@@ -83,11 +89,15 @@ public class EmpleadoBusiness implements IEmpleadoService {
 				} catch (Exception e) {
 					responseFiles.getBody().setDb("error");
 				}
+			} else if (db.trim().equals("no")) {
+				responseFiles.getBody().setDb("no aplica");
 			}
 
 //respondemos json
-			if (responseFiles.getBody().getCsv() == "error" || responseFiles.getBody().getXls() == "error"
-					|| responseFiles.getBody().getPdf() == "error" || responseFiles.getBody().getDb() == "error") {
+			if (responseFiles.getBody().getPdf() == "error" 
+					|| responseFiles.getBody().getCsv() == "error"
+					|| responseFiles.getBody().getXls() == "error" 
+					|| responseFiles.getBody().getDb() == "error") {
 
 				responseFiles.getBody().setCode(01);
 				responseFiles.getBody().setMessage("error en alguno de los archivos");

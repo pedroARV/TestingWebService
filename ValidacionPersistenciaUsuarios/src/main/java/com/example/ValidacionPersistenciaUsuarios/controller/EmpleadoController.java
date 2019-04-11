@@ -15,7 +15,7 @@ public class EmpleadoController {
 	@Autowired
 	IEmpleadoService userService;
 
-	@PostMapping("/")
+	@PostMapping("/empleado")
 	public ResponseEntity<?> respuesta(
 			@RequestHeader(value = "pdf", required = true) String pdf,
 			@RequestHeader(value = "csv", required = true) String csv,

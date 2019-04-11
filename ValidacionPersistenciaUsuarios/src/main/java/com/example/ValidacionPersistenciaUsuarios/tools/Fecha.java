@@ -6,7 +6,7 @@ public class Fecha {
 
 	public static String fechaActual() {
 		Calendar c = Calendar.getInstance();
-		String year = Integer.toString(c.get(Calendar.YEAR));
+		String year = Integer.toString(c.get(Calendar.YEAR)-2000);
 		String mes = Integer.toString(c.get(Calendar.MONTH) + 1);
 		String dia = Integer.toString(c.get(Calendar.DATE));
 		String hora = Integer.toString(c.get(Calendar.HOUR));
