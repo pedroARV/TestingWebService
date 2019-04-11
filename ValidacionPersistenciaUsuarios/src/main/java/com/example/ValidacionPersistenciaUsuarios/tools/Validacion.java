@@ -5,8 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.ValidacionPersistenciaUsuarios.modelo.ResponseValidacion;
 import com.example.ValidacionPersistenciaUsuarios.modelo.Empleado;
-
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -169,6 +167,7 @@ public class Validacion {
 				return error;
 			}
 		}
+				
 //return sin errores
 		ResponseEntity<ResponseValidacion> ok = new ResponseEntity<ResponseValidacion>(body, HttpStatus.OK);
 		ok.getBody().setCode(00);
