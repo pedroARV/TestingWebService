@@ -130,18 +130,18 @@ public class Validacion {
 		for (int i = 0; i < empleado.getMarcadores().size(); ++i) {
 			
 			if (empleado.getMarcadores().get(i).getLatitude() == null) {
-				String codeLatitude = "00" + Integer.toString(i + 1);
+				String codeLatitude = "00" + Integer.toString(i);
 				int code = Integer.parseInt(codeLatitude);
 				error.getBody().setCode(code);
-				error.getBody().setMessage("error en parametro: latitude");
+				error.getBody().setMessage("error en parametro: latitude. De la lista: " + Integer.toString(i));
 				return error;
 			}
 			
 			if (empleado.getMarcadores().get(i).getLongitude() == null) {
-				String codeLongitude = "01" + Integer.toString(i + 1);
+				String codeLongitude = "01" + Integer.toString(i);
 				int code = Integer.parseInt(codeLongitude);
 				error.getBody().setCode(code);
-				error.getBody().setMessage("error en parametro: longitude");
+				error.getBody().setMessage("error en parametro: longitude. De la lista: " + Integer.toString(i));
 				return error;
 			}
 			
@@ -149,10 +149,10 @@ public class Validacion {
 					|| empleado.getMarcadores().get(i).getCity().isEmpty()
 					|| empleado.getMarcadores().get(i).getCity().length() < 3
 					|| empleado.getMarcadores().get(i).getCity().length() > 20) {
-				String codeCity = "02" + Integer.toString(i + 1);
+				String codeCity = "02" + Integer.toString(i);
 				int code = Integer.parseInt(codeCity);
 				error.getBody().setCode(code);
-				error.getBody().setMessage("error en parametro: city");
+				error.getBody().setMessage("error en parametro: city. De la lista: " + Integer.toString(i));
 				return error;
 			}
 			
@@ -160,14 +160,13 @@ public class Validacion {
 					|| empleado.getMarcadores().get(i).getDescription().isEmpty()
 					|| empleado.getMarcadores().get(i).getDescription().length() < 3
 					|| empleado.getMarcadores().get(i).getDescription().length() > 120) {
-				String codeDescription = "03" + Integer.toString(i + 1);
+				String codeDescription = "03" + Integer.toString(i);
 				int code = Integer.parseInt(codeDescription);
 				error.getBody().setCode(code);
-				error.getBody().setMessage("error en parametro: description");
+				error.getBody().setMessage("error en parametro: description. De la lista: " + Integer.toString(i));
 				return error;
 			}
 		}
-				
 //return sin errores
 		ResponseEntity<ResponseValidacion> ok = new ResponseEntity<ResponseValidacion>(body, HttpStatus.OK);
 		ok.getBody().setCode(00);
