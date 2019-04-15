@@ -31,7 +31,7 @@ public class Almacenar {
 		fw.append("beca: " + res.getBeca() + ". \n");
 		fw.append("status del alumno: " + res.getStatus_del_alumno() + ". \n");
 		fw.append("semestre: " + res.getSemestre() + ". \n");
-		fw.append(filePath + matricula + "-" + res.getSemestre() + "-" + fecha + ".parv" + ". \n");
+		fw.append("ruta: " + filePath + matricula + "-" + res.getSemestre() + "-" + fecha + ".parv" + ". \n");
 		fw.append("fecha: " + fecha2 + ".");
 		// cerramos el csv
 		fw.flush();
