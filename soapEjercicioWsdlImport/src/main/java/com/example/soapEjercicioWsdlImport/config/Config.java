@@ -1,4 +1,4 @@
-package com.example.soapEjercicioWsdlImport;
+package com.example.soapEjercicioWsdlImport.config;
 
 import javax.xml.namespace.QName;
 import org.springframework.context.annotation.Bean;
